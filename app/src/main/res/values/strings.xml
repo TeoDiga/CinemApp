@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">CinemApp</string>
+    <string name="domanda_lingua">Che in che lingua vuoi leggere la trama?</string>
+    <string name="domanda_info">Che informazioni ti interessano?</string>
+    <string name="Regista">Regista</string>
+    <string name="anno">Anno di produzione</string>
+    <string name="paese_prod">Paese di produzione</string>
+    <string name="fatto">Fatto!</string>
+    <string name="login">Login</string>
+    <string name="e_mail">E-mail</string>
+    <string name="recupero_psswrd">Hai dimenticato la password?</string>
+    <string name="password">password</string>
+    <string name="oppure">oppure</string>
+    <string name="registrati">registrati</string>
+    <string name="sceneggiatore">sceneggiatore</string>
+    <string name="cast">cast</string>
+    <string name="durata">durata in minuti</string>
+    <string name="avviso_preferenze">non hai selezionato nessuna preferenza</string>
+    <string-array name="lingue">
+        <item>italiano</item>
+        <item>inglese</item>
+        <item>spagnolo</item>
+        <item>francese</item>
+        <item>tedesco</item>
+    </string-array>
+    <string name="italiano">italiano</string>
+    <string name="inglese">inglese</string>
+    <string name="spagnolo">spagnolo</string>
+    <string name="francese">francese</string>
+    <string name="tedesco">tedesco</string>
+</resources>
