@@ -18,7 +18,9 @@ import static it.unimib.cinemapp.Util.Costanti.TEDESCO;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -57,6 +59,9 @@ public class ImpostazioniRicercaActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Log.d(TAG, "la mail è: "+getIntent().getStringExtra("email"));
+
         setContentView(R.layout.activity_impostazioni_ricerca);
 
         //inizializzo robba
@@ -92,6 +97,10 @@ public class ImpostazioniRicercaActivity extends AppCompatActivity  {
 
 
         buttonFatto.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.putExtra("esito", "123");
+            setResult(Activity.RESULT_OK , intent);
+            finish();
             if (isInteressato() && isLinguaSelezionata()){
                 Log.d(TAG, "hai scelto!");
 

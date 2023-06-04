@@ -26,7 +26,7 @@
     tools:context=".UI.BenvenutoActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/logo_app"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"

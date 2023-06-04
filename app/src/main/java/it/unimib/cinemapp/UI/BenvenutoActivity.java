@@ -5,11 +5,22 @@ import static it.unimib.cinemapp.Util.Costanti.ENCRYPTED_DATA_FILE_NAME;
 import static it.unimib.cinemapp.Util.Costanti.ENCRYPTED_SHARED_PREFERENCES_FILE_NAME;
 import static it.unimib.cinemapp.Util.Costanti.PASSWORD;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.Instrumentation;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -40,6 +51,18 @@ public class BenvenutoActivity extends AppCompatActivity {
 
         deu=new DataEncryptionUtil(this);
 
+        ActivityResultLauncher<String> getContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
+                new ActivityResultCallback<Uri>() {
+                    @Override
+                    public void onActivityResult(Uri result) {
+                        try {
+                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), result);
+                            ((ImageView) findViewById(R.id.logo_app)).setImageBitmap(bitmap);
+                        }catch (IOException e){
+                            e.printStackTrace();
+                        }
+                    }
+                });
         try{
             Log.d(TAG,"indirizzo mail memorizzato: "+deu.readSecretDataWithEncryptedSharedPreferences
                     (ENCRYPTED_DATA_FILE_NAME, EMAIL));
@@ -57,6 +80,13 @@ public class BenvenutoActivity extends AppCompatActivity {
             if(isEmailOK(email)||isPassOk(password)) {
                 Log.d(TAG, "pass e mail sono ok");
                 salvaDatiLogin(email, password);
+                /*
+                Intent intent = new Intent(this, ImpostazioniRicercaActivity.class);
+                intent.putExtra("email", email);
+                startActivity(intent);
+                finish();
+                */
+                getContent.launch("image/*");
             }else {
                 Snackbar.make(findViewById(android.R.id.content), "ricontrolla i dati gnucco",
                         Snackbar.LENGTH_SHORT).show();
