@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/cercaFragment">
+
+    <fragment
+        android:id="@+id/cercaFragment"
+        android:name="it.unimib.cinemapp.UI.main.CercaFragment"
+        android:label="fragment_cerca"
+        tools:layout="@layout/fragment_cerca" />
+    <fragment
+        android:id="@+id/filmPreferitiFragment"
+        android:name="it.unimib.cinemapp.UI.main.FilmPreferitiFragment"
+        android:label="fragment_film_preferiti"
+        tools:layout="@layout/fragment_film_preferiti" />
+    <fragment
+        android:id="@+id/impostazioniFragment"
+        android:name="it.unimib.cinemapp.UI.main.ImpostazioniFragment"
+        android:label="fragment_impostazioni"
+        tools:layout="@layout/fragment_impostazioni" />
+</navigation>

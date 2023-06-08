@@ -28,6 +28,10 @@
     <string name="spagnolo">spagnolo</string>
     <string name="francese">francese</string>
     <string name="tedesco">tedesco</string>
+    <string name="cerca">cerca film</string>
+    <string name="preferiti">film preferiti</string>
+    <string name="impostaioni">impostazioni</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="elimina">elimina\n</string>
 </resources>

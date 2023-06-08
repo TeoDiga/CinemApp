@@ -10,6 +10,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -89,6 +90,7 @@ public class LoginFragment extends Fragment {
             e.printStackTrace();
         }
         bottoneLogin.setOnClickListener(v -> {
+            Navigation.findNavController(requireView()).navigate(R.id.action_loginFragment_to_impostazioniRicercaActivity);
             String email=TIL_email.getEditText().getText().toString();
             String password= TIL_password.getEditText().getText().toString();
             if(isEmailOK(email)||isPassOk(password)) {

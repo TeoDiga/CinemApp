@@ -23,7 +23,7 @@
         android:layout_height="match_parent"
         android:layout_margin="16dp"
         android:orientation="vertical"
-        tools:context=".UI.MainActivity">
+        tools:context=".UI.main.MainActivity">
 
 
         <androidx.cardview.widget.CardView
