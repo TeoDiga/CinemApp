@@ -6,13 +6,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import it.unimib.cinemapp.R;
 
@@ -57,6 +60,10 @@ public class CercaFragment extends Fragment {
             public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
                 return false;
             }
+        });
+        final Button bottoneRicera= view.findViewById(R.id.bottone_ricerca);
+        bottoneRicera.setOnClickListener(v -> {
+            Navigation.findNavController(requireView()).navigate(R.id.action_cercaFragment_to_elencoFilmFragment);
         });
     }
 }

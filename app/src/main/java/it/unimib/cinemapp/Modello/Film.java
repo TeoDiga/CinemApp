@@ -14,17 +14,33 @@ public class Film implements Parcelable {
     private String Cast;
     private String Durata;
     private String ID;
+    private String urlImmagine;
+    private String Sinossi;
 
-    public Film(String id, String titolo, String regista, String paese, String anno, String sceneggiatore, String cast, String durata){
-        this.ID =id;
-        this.Titolo = titolo;
-        this.Regista = regista;
-        this.Paese_prod = paese;
-        this.Anno_prod = anno;
-        this.Sceneggiatore= sceneggiatore;
-        this.Cast =cast;
-        this.Durata= durata;
+
+    public Film() {
     }
+
+    public Film(String titolo, String regista, String paese_prod, String anno_prod,
+                String sceneggiatore, String cast, String durata, String ID, String urlImmagine, String sinossi) {
+        Titolo = titolo;
+        Regista = regista;
+        Paese_prod = paese_prod;
+        Anno_prod = anno_prod;
+        Sceneggiatore = sceneggiatore;
+        Cast = cast;
+        Durata = durata;
+        this.ID = ID;
+        this.urlImmagine = urlImmagine;
+        Sinossi = sinossi;
+    }
+    public Film(FilmCercati fonte){
+        this.ID=fonte.getId();
+        this.Titolo=fonte.getTitle();
+        this.Sinossi=fonte.getDescription();
+        this.urlImmagine=fonte.getImage();
+    }
+
 
     public String getTitolo() {
         return Titolo;
@@ -90,6 +106,22 @@ public class Film implements Parcelable {
         this.ID = ID;
     }
 
+    public String getUrlImmagine() {
+        return urlImmagine;
+    }
+
+    public void setUrlImmagine(String urlImmagine) {
+        this.urlImmagine = urlImmagine;
+    }
+
+    public String getSinossi() {
+        return Sinossi;
+    }
+
+    public void setSinossi(String sinossi) {
+        Sinossi = sinossi;
+    }
+
     @Override
     public String toString() {
         return "Film{" +
@@ -101,6 +133,8 @@ public class Film implements Parcelable {
                 ", Cast='" + Cast + '\'' +
                 ", Durata='" + Durata + '\'' +
                 ", ID='" + ID + '\'' +
+                ", urlImmagine='" + urlImmagine + '\'' +
+                ", Sinossi='" + Sinossi + '\'' +
                 '}';
     }
 
@@ -111,36 +145,42 @@ public class Film implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.Titolo);
-        dest.writeString(this.Regista);
         dest.writeString(this.Paese_prod);
+        dest.writeString(this.Regista);
+        dest.writeString(this.Titolo);
         dest.writeString(this.Anno_prod);
         dest.writeString(this.Sceneggiatore);
         dest.writeString(this.Cast);
         dest.writeString(this.Durata);
         dest.writeString(this.ID);
+        dest.writeString(this.urlImmagine);
+        dest.writeString(this.Sinossi);
     }
 
     public void readFromParcel(Parcel source) {
-        this.Titolo = source.readString();
-        this.Regista = source.readString();
         this.Paese_prod = source.readString();
+        this.Regista = source.readString();
+        this.Titolo = source.readString();
         this.Anno_prod = source.readString();
         this.Sceneggiatore = source.readString();
         this.Cast = source.readString();
         this.Durata = source.readString();
         this.ID = source.readString();
+        this.urlImmagine = source.readString();
+        this.Sinossi = source.readString();
     }
 
     protected Film(Parcel in) {
-        this.Titolo = in.readString();
-        this.Regista = in.readString();
         this.Paese_prod = in.readString();
+        this.Regista = in.readString();
+        this.Titolo = in.readString();
         this.Anno_prod = in.readString();
         this.Sceneggiatore = in.readString();
         this.Cast = in.readString();
         this.Durata = in.readString();
         this.ID = in.readString();
+        this.urlImmagine = in.readString();
+        this.Sinossi = in.readString();
     }
 
     public static final Creator<Film> CREATOR = new Creator<Film>() {

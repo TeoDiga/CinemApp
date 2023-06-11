@@ -103,10 +103,10 @@
 
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/purple_500"
-                    app:rippleColor="@color/purple_200"
-                    android:textColor="@color/white"
                     android:text="@string/login"
-                    android:textAllCaps="true" />
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    app:rippleColor="@color/purple_200" />
             </LinearLayout>
 
             <LinearLayout

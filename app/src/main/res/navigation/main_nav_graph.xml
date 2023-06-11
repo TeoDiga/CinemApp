@@ -9,7 +9,11 @@
         android:id="@+id/cercaFragment"
         android:name="it.unimib.cinemapp.UI.main.CercaFragment"
         android:label="fragment_cerca"
-        tools:layout="@layout/fragment_cerca" />
+        tools:layout="@layout/fragment_cerca" >
+        <action
+            android:id="@+id/action_cercaFragment_to_elencoFilmFragment"
+            app:destination="@id/elencoFilmFragment" />
+    </fragment>
     <fragment
         android:id="@+id/filmPreferitiFragment"
         android:name="it.unimib.cinemapp.UI.main.FilmPreferitiFragment"
@@ -20,4 +24,9 @@
         android:name="it.unimib.cinemapp.UI.main.ImpostazioniFragment"
         android:label="fragment_impostazioni"
         tools:layout="@layout/fragment_impostazioni" />
+    <fragment
+        android:id="@+id/elencoFilmFragment"
+        android:name="it.unimib.cinemapp.UI.main.ElencoFilmFragment"
+        android:label="fragment_elenco_film"
+        tools:layout="@layout/fragment_elenco_film" />
 </navigation>

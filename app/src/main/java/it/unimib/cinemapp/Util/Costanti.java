@@ -29,4 +29,7 @@ public class Costanti {
     public static final String PASSWORD ="password";
 
     public static final String ENCRYPTED_DATA_FILE_NAME = "it.unimib.worldnews.encrypted_file.txt";
+
+    public static final String MATRIX_TEST = "matrix.json";
+    public static final String AVATAR_TEST="avatar.json";
 }

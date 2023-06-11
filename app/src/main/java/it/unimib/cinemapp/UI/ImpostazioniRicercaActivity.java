@@ -86,11 +86,7 @@ public class ImpostazioniRicercaActivity extends AppCompatActivity  {
         }
         else{
             Log.d(TAG,"vuoto");
-            film= new Film("tt1375666", "Inception", "Christopher Nolan",
-                    "Stati Uniti d'America, UK", "2010", "Christopher Nolan",
-                    "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page",
-                    "2h 28min");
-            Log.d(TAG, "la memoria era vuota, il film nuovo "+ film.toString());
+
         }
         setStatoPrecedente();
 
