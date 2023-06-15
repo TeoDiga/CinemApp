@@ -112,19 +112,9 @@ public class FilmApiResponse implements Parcelable {
         List<Film> lista= new ArrayList<>();
         Iterator<FilmCercati> iterator= results.iterator();
         while (iterator.hasNext()){
-
-            Log.d(TAG, "fin qui ci sono1");
             FilmCercati filmCercato=iterator.next();
-            Log.d(TAG, filmCercato.getTitle()+filmCercato.getDescription());
-            Log.d(TAG, "fin qui ci sono2");
-
             Film film= new Film(filmCercato);
-            Log.d(TAG, film.getTitolo()+" "+film.getSinossi());
-            Log.d(TAG, "fin qui ci sono3");
-            Log.d(TAG, "dimensioni della lista prima "+lista.size());
             lista.add(film);
-            Log.d(TAG, "dimensioni della lista poi "+lista.size());
-            Log.d(TAG, "fin qui ci sono4");
         }
         return lista;
     }

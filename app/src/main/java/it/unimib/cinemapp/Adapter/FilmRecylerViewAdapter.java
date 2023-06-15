@@ -62,7 +62,7 @@ public class FilmRecylerViewAdapter extends RecyclerView.Adapter<FilmRecylerView
         }
         public void bind(Film film){
             textViewTitolo.setText(film.getTitolo());
-            textViewRegista.setText(film.getRegista());
+            textViewRegista.setText(film.getSinossi());
         }
 
         @Override

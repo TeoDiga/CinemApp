@@ -19,10 +19,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import it.unimib.cinemapp.Adapter.FilmArrayAdapter;
@@ -32,15 +34,21 @@ import it.unimib.cinemapp.Modello.FilmApiResponse;
 import it.unimib.cinemapp.Modello.FilmCercati;
 import it.unimib.cinemapp.R;
 import it.unimib.cinemapp.Util.JSONparser;
+import it.unimib.cinemapp.Util.ResponseCallback;
+import it.unimib.cinemapp.repository.FilmRepositoryDaFile;
+import it.unimib.cinemapp.repository.FilmRepositoryInterfaccia;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ElencoFilmFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ElencoFilmFragment extends Fragment {
+public class ElencoFilmFragment extends Fragment implements ResponseCallback {
 
     private static final String TAG = ElencoFilmFragment.class.getSimpleName();
+    private List<Film> films;
+    private FilmRepositoryInterfaccia filmRepositoryInterfaccia;
+    private ProgressBar progressBar;
 
     public ElencoFilmFragment() {
         // Required empty public constructor
@@ -54,7 +62,9 @@ public class ElencoFilmFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        filmRepositoryInterfaccia= new FilmRepositoryDaFile(requireActivity().getApplication(), this,
+                FilmRepositoryInterfaccia.JsonParserType.GSON);
+        films= new ArrayList<>();
     }
 
     @Override
@@ -113,5 +123,27 @@ public class ElencoFilmFragment extends Fragment {
 
             e.printStackTrace();}
         return null;
+    }
+
+    @Override
+    public void successoRicerca(List<Film> filmList, long ultimoAggiornamento) {
+        if(filmList !=null){
+            this.films.clear();
+            this.films.addAll(filmList);
+            //sharedpreferences
+        }
+    }
+
+
+
+    @Override
+    public void fallimentoRicerca(String errore) {
+        progressBar.setVisibility(View.GONE);
+        Snackbar.make(requireActivity().findViewById(android.R.id.content), errore, Snackbar.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void filmCambiatoStatus(Film film) {
+
     }
 }
