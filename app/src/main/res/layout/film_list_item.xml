@@ -37,9 +37,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="end"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/bottone_eliminazione_lista"
@@ -53,6 +51,14 @@
                 android:textSize="16sp"
                 app:icon="@drawable/baseline_delete_outline_24"
                 app:iconGravity="textStart" />
+
+            <Button
+                android:id="@+id/bottone_preferito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ama"
+                app:icon="@drawable/baseline_favorite_border_24" />
         </LinearLayout>
 
     </LinearLayout>

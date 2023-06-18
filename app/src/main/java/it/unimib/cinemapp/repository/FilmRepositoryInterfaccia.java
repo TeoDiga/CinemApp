@@ -9,8 +9,7 @@ public interface FilmRepositoryInterfaccia {
         GSON,
         JSON_ERROR
     };
-    void cercaFilm(String queryUtente);
-    void scaricaFilm(String id, long ultimoAgg);
+    void cercaFilm(String queryUtente, long ultimoAggiornamento);
 
     void aggiornaFilm(Film film);
 

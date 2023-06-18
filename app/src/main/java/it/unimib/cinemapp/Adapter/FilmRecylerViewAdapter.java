@@ -18,6 +18,7 @@ public class FilmRecylerViewAdapter extends RecyclerView.Adapter<FilmRecylerView
     public interface OnItemClickListener{
         void onFilmClick(Film film);
         void onDeleteButtonPressed(int position);
+        void onPreferitiButtonPressed(int position, Film film);
     }
     private final List<Film> filmList;
     private final OnItemClickListener onItemClickListener;
@@ -71,9 +72,11 @@ public class FilmRecylerViewAdapter extends RecyclerView.Adapter<FilmRecylerView
                 filmList.remove(getAdapterPosition());
                 notifyItemRemoved(getAdapterPosition());
                 onItemClickListener.onDeleteButtonPressed(getAdapterPosition());
-            }
-            else{
-            onItemClickListener.onFilmClick(filmList.get(getAdapterPosition()));
+            } else if (v.getId()== R.id.bottone_preferito) {
+                onItemClickListener.onFilmClick(filmList.get(getAdapterPosition()));
+                //placeholder
+            } else{
+            onItemClickListener.onPreferitiButtonPressed(getAdapterPosition(),filmList.get(getAdapterPosition()));
             }
         }
     }

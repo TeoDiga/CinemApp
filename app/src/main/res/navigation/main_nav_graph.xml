@@ -28,5 +28,14 @@
         android:id="@+id/elencoFilmFragment"
         android:name="it.unimib.cinemapp.UI.main.ElencoFilmFragment"
         android:label="fragment_elenco_film"
-        tools:layout="@layout/fragment_elenco_film" />
+        tools:layout="@layout/fragment_elenco_film">
+        <action
+        android:id="@+id/action_mostra_film"
+        app:destination="@id/filmFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/filmFragment"
+        android:name="it.unimib.cinemapp.UI.main.FilmFragment"
+        android:label="fragment_film"
+        tools:layout="@layout/fragment_film" />
 </navigation>

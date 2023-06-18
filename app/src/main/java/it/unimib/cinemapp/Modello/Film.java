@@ -16,6 +16,14 @@ public class Film implements Parcelable {
     private String ID;
     private String urlImmagine;
     private String Sinossi;
+    private Stato stato;
+
+    public enum Stato{
+        PREFERITO,
+        VISTO,
+        DA_VEDERE,
+        EVITARE
+    };
 
 
     public Film() {
@@ -121,6 +129,15 @@ public class Film implements Parcelable {
     public void setSinossi(String sinossi) {
         Sinossi = sinossi;
     }
+
+    public Stato getStato() {
+        return stato;
+    }
+
+    public void setStato(Stato stato) {
+        this.stato = stato;
+    }
+
 
     @Override
     public String toString() {

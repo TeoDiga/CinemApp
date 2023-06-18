@@ -95,6 +95,11 @@ public class FilmPreferitiFragment extends Fragment {
                     public void onDeleteButtonPressed(int position) {
                         Snackbar.make(view, filmList.size()+" elementi rimasti", Snackbar.LENGTH_SHORT).show();
                     }
+
+                    @Override
+                    public void onPreferitiButtonPressed(int position, Film film) {
+
+                    }
                 });
         recyclerViewPreferiti.setLayoutManager(layoutManager);
         recyclerViewPreferiti.setAdapter(filmRecylerViewAdapter);

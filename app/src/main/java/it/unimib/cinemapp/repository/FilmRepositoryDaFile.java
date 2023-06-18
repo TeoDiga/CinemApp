@@ -34,7 +34,7 @@ public class FilmRepositoryDaFile implements FilmRepositoryInterfaccia{
         //FilmRoomDatabase filmRoomDatabase=
     }
     @Override
-    public void cercaFilm(String queryUtente) {
+    public void cercaFilm(String queryUtente, long ultimoAggiornamento) {
         FilmApiResponse filmApiResponse=null;
         JSONparser jsoNparser=new JSONparser(application);
         switch (jsonParserType){
@@ -65,10 +65,6 @@ public class FilmRepositoryDaFile implements FilmRepositoryInterfaccia{
         }
     }
 
-    @Override
-    public void scaricaFilm(String id, long ultimoAgg) {
-
-    }
 
     @Override
     public void aggiornaFilm(Film film) {
