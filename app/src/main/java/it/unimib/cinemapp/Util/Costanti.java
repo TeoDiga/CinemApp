@@ -32,6 +32,8 @@ public class Costanti {
 
     public static final String MATRIX_TEST = "matrix.json";
     public static final String AVATAR_TEST="avatar.json";
+    public static final String VIA_ACQUA_TEST="ViaAcqua.json";
 
     public static final String ULTIMO_AGGIORNAMENTO ="ultimo_aggiornamento";
+    public static final int DATABASE_VERSION= 1;
 }

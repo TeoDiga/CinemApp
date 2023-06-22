@@ -48,6 +48,12 @@ public class Film implements Parcelable {
         this.Sinossi=fonte.getDescription();
         this.urlImmagine=fonte.getImage();
     }
+    public Film(Result fonte){
+        this.ID=fonte.getId();
+        this.Titolo=fonte.getTitle();
+        this.Sinossi=fonte.getDescription();
+        this.urlImmagine=fonte.getImage();
+    }
 
 
     public String getTitolo() {

@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_cerca" >
         <action
             android:id="@+id/action_cercaFragment_to_elencoFilmFragment"
-            app:destination="@id/elencoFilmFragment" />
+            app:destination="@id/elencoFilmFragment" >
+            <argument
+                android:name="query"
+                android:defaultValue='"avatar"' />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/filmPreferitiFragment"
@@ -32,6 +36,10 @@
         <action
         android:id="@+id/action_mostra_film"
         app:destination="@id/filmFragment" />
+        <argument
+            android:name="query"
+            app:argType="string"
+            android:defaultValue='"avatar"' />
     </fragment>
     <fragment
         android:id="@+id/filmFragment"

@@ -9,9 +9,12 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import com.google.gson.annotations.SerializedName;
+
+
 
 public class FilmApiResponse implements Parcelable {
-    private static final String TAG= FilmApiResponse.class.getSimpleName();
+    //private static final String TAG= FilmApiResponse.class.getSimpleName();
     private String searchType;
     private String expression;
     private List<FilmCercati> results;

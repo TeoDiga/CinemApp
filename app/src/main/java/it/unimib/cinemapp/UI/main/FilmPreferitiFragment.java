@@ -98,7 +98,8 @@ public class FilmPreferitiFragment extends Fragment {
 
                     @Override
                     public void onPreferitiButtonPressed(int position, Film film) {
-
+                        film.setStato(Film.Stato.PREFERITO);
+                        Snackbar.make(view, "ti piace molto"+film.getTitolo(), Snackbar.LENGTH_SHORT).show();
                     }
                 });
         recyclerViewPreferiti.setLayoutManager(layoutManager);

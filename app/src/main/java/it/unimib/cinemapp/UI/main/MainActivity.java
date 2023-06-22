@@ -12,6 +12,8 @@ import android.os.Bundle;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import it.unimib.cinemapp.R;
+import it.unimib.cinemapp.Util.FilmRestService;
+import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 

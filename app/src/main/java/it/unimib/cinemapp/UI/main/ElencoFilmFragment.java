@@ -62,6 +62,9 @@ public class ElencoFilmFragment extends Fragment implements ResponseCallback {
     public ElencoFilmFragment() {
         // Required empty public constructor
     }
+    public ElencoFilmFragment(List<Film> input){
+        this.films=input;
+    }
 
 
     public static ElencoFilmFragment newInstance() {
@@ -104,6 +107,7 @@ public class ElencoFilmFragment extends Fragment implements ResponseCallback {
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(requireContext(),
                 LinearLayoutManager.VERTICAL, false);
 
+        films= getArguments().getParcelableArrayList("Lista");
 
         FilmRecylerViewAdapter filmRecylerViewAdapter= new FilmRecylerViewAdapter(films,
                 new FilmRecylerViewAdapter.OnItemClickListener() {
@@ -120,18 +124,21 @@ public class ElencoFilmFragment extends Fragment implements ResponseCallback {
 
             @Override
              public void onPreferitiButtonPressed(int position, Film film) {
+
                 film.setStato(Film.Stato.PREFERITO);
                 Snackbar.make(view, "ti piace molto"+film.getTitolo(), Snackbar.LENGTH_SHORT).show();
             }
         });
         recyclerViewCerca.setLayoutManager(layoutManager);
         recyclerViewCerca.setAdapter(filmRecylerViewAdapter);
+        /*
         String ultimoAggiornamento ="0";
         if (sharedPrefUtil.leggiString(SHARED_PREFERENCES_FILE_NAME, ULTIMO_AGGIORNAMENTO)!=null){
             ultimoAggiornamento=sharedPrefUtil.leggiString(SHARED_PREFERENCES_FILE_NAME, ULTIMO_AGGIORNAMENTO);
         }
         progressBar.setVisibility(View.VISIBLE);
         filmRepositoryInterfaccia.cercaFilm(sharedPrefUtil.leggiString(SHARED_PREFERENCES_FILE_NAME, LINGUA_SCELTA),  Long.parseLong(ultimoAggiornamento));
+        */
     }
     /*
     private List<Film> filmListGson(){

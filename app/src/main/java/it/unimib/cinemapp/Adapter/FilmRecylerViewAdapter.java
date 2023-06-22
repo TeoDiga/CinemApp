@@ -73,10 +73,11 @@ public class FilmRecylerViewAdapter extends RecyclerView.Adapter<FilmRecylerView
                 notifyItemRemoved(getAdapterPosition());
                 onItemClickListener.onDeleteButtonPressed(getAdapterPosition());
             } else if (v.getId()== R.id.bottone_preferito) {
-                onItemClickListener.onFilmClick(filmList.get(getAdapterPosition()));
+                onItemClickListener.onPreferitiButtonPressed(getAdapterPosition(),filmList.get(getAdapterPosition()));
                 //placeholder
             } else{
-            onItemClickListener.onPreferitiButtonPressed(getAdapterPosition(),filmList.get(getAdapterPosition()));
+                onItemClickListener.onFilmClick(filmList.get(getAdapterPosition()));
+
             }
         }
     }
